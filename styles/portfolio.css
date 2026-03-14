@@ -1,0 +1,128 @@
+:root {
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+  --brand-indigo: #6366f1;
+  --brand-green: #22c55e;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(99, 102, 241, 0.24), transparent 32%),
+    radial-gradient(circle at 80% 20%, rgba(34, 197, 94, 0.16), transparent 28%),
+    radial-gradient(circle at 56% 70%, rgba(99, 102, 241, 0.14), transparent 38%),
+    linear-gradient(140deg, var(--bg-primary), var(--bg-secondary), var(--bg-primary));
+  background-size: 220% 220%;
+  animation: gradientShift 16s ease infinite;
+}
+
+.section-wrapper {
+  position: relative;
+  margin-inline: auto;
+  width: min(1120px, calc(100% - 1.5rem));
+  padding-block: 4.5rem;
+}
+
+.glow-card {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 32px rgba(2, 6, 23, 0.34);
+}
+
+.glow-card::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(99, 102, 241, 0.45), transparent 50%, rgba(34, 197, 94, 0.35));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-card:hover::before {
+  opacity: 0.45;
+}
+
+.glow-button,
+.glow-button-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.72rem 1.1rem;
+  min-width: 160px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.glow-button {
+  border: 1px solid rgba(99, 102, 241, 0.5);
+  color: #e2e8f0;
+  background: linear-gradient(100deg, rgba(99, 102, 241, 0.35), rgba(34, 197, 94, 0.2));
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.glow-button-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #e2e8f0;
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.glow-button:hover,
+.glow-button-secondary:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.glow-button:hover {
+  box-shadow: 0 12px 34px rgba(99, 102, 241, 0.45);
+}
+
+.hero-spotlight {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.24), rgba(34, 197, 94, 0.08), transparent 70%);
+  filter: blur(12px);
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-wrapper {
+    width: min(1120px, calc(100% - 1.5rem));
+    padding-block: 3rem;
+  }
+
+  .glow-button,
+  .glow-button-secondary {
+    min-width: 132px;
+    padding: 0.68rem 0.95rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+  }
+}
