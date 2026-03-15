@@ -10,6 +10,8 @@ const links = [
   { label: "Contact", href: "#contact" },
 ];
 
+const mobileLinks = links.filter((l) => l.label !== "About");
+
 export function Navbar() {
   return (
     <motion.header
@@ -29,7 +31,7 @@ export function Navbar() {
         </a>
 
         <div className="no-scrollbar ml-2 flex min-w-0 flex-1 items-center justify-end gap-0.5 overflow-x-auto sm:hidden">
-          {links.map((link) => (
+          {mobileLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
